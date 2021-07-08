@@ -2,7 +2,7 @@
 **Program is in early development!**
 
 ## Description
-*androidDatabaseTester* is a MySQL and ODBC databases tester for Android written in Xamarin Forms. Test if your database is available from your android device and send SELECT queries to check table data.
+*androidDatabaseTester* is a MySQL and similar databases tester for Android written in Xamarin Forms. Test if your database is available from your android device and send SELECT queries to check table data.
 
 ## Used technology
 Technology I used for this project:
