@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-using MySqlConnector;
-
 namespace androidDatabaseTester
 {
     public partial class Main : ContentPage
     {
+        const string VERSION = "1.0.0t";
+
+        Connection connection;
+
         public Main()
         {
             InitializeComponent();
@@ -19,44 +21,47 @@ namespace androidDatabaseTester
 
         private void Button_MySQL(object sender, EventArgs e)
         {
-            testMysql();
+            testConnection();
         }
 
-        private void testMysql()
+        private void Button_Select(object sender, EventArgs e)
+        {
+            testSelectQuery();
+        }
+
+        private void testConnection()
         {
             string ip = E_IP.Text.ToString();
             string user = E_User.Text.ToString();
             string pass = E_Password.Text.ToString();
             string db = E_Database.Text.ToString();
-            string qu = E_Query.Text.ToString();
 
             try
             {
-                string CONNECTION_STRING = "server=" + ip + ";port=3306;user=" + user + ";password=" + pass + ";database=" + db + ";";
-                MySqlConnection conn = new MySqlConnection(CONNECTION_STRING);
-                MySqlCommand query = new MySqlCommand(qu, conn);
-                query.CommandTimeout = 30;
+                L_Log.Text = "Initializing connection!";
 
-                conn.Open();
+                connection = new Connection(ip, user, pass, db);
 
-                MySqlDataReader mySqlDataReader = query.ExecuteReader();
-                int fCount = 0;
+                Tuple<bool, string> connectionStatus = connection.getConnection();
 
-                if (mySqlDataReader.HasRows)
+                if (connectionStatus.Item1)
                 {
-                    while (mySqlDataReader.Read())
-                    {
-                        fCount++;
-                    }
+                    L_Log.Text = connectionStatus.Item2;
                 }
-
-                conn.Close();
-                L_Log.Text = "Connection good! fCount = " + fCount.ToString();
+                else
+                {
+                    L_Log.Text = "There's a problem:\n" + connectionStatus.Item2;
+                }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                L_Log.Text = e.ToString();
+                L_Log.Text = "Oops! An exception poped out:\n"+e.Message;
             }
+        }
+
+        private void testSelectQuery()
+        {
+
         }
     }
 }
