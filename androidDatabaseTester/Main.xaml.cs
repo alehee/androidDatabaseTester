@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace androidDatabaseTester
@@ -17,51 +18,106 @@ namespace androidDatabaseTester
         public Main()
         {
             InitializeComponent();
+
+            L_Version.Text = VERSION;
         }
 
-        private void Button_MySQL(object sender, EventArgs e)
+        private async void Button_MySQL(object sender, EventArgs e)
         {
-            testConnection();
+            await testConnection();
         }
 
-        private void Button_Select(object sender, EventArgs e)
+        private async void Button_Select(object sender, EventArgs e)
         {
-            testSelectQuery();
+            await testSelectQuery();
         }
 
-        private void testConnection()
+        private async Task testConnection()
         {
-            string ip = E_IP.Text.ToString();
-            string user = E_User.Text.ToString();
-            string pass = E_Password.Text.ToString();
-            string db = E_Database.Text.ToString();
+            string ip = "";
+            try
+            {
+                ip = E_IP.Text.ToString();
+            }
+            catch { }
+
+            string user = "";
+            try
+            {
+                user = E_User.Text.ToString();
+            }
+            catch { }
+
+            string pass = "";
+            try
+            {
+                pass = E_Password.Text.ToString();
+            }
+            catch { }
+
+            string db = "";
+            try
+            {
+                db = E_Database.Text.ToString();
+            }
+            catch { }
 
             try
             {
-                L_Log.Text = "Initializing connection!";
+                await changeLoading(true);
 
                 connection = new Connection(ip, user, pass, db);
 
-                Tuple<bool, string> connectionStatus = connection.getConnection();
+                Tuple<bool, string> connectionStatus = await connection.getConnectionAsync();
 
                 if (connectionStatus.Item1)
                 {
-                    L_Log.Text = connectionStatus.Item2;
+                    showLog(connectionStatus.Item2, Color.Green);
                 }
                 else
                 {
-                    L_Log.Text = "There's a problem:\n" + connectionStatus.Item2;
+                    showLog("There's a connection problem:\n" + connectionStatus.Item2, Color.Red);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                L_Log.Text = "Oops! An exception poped out:\n"+e.Message;
+                showLog("Oops! An exception poped out:\n" + e.Message, Color.Red);
+            }
+            finally
+            {
+                await changeLoading(false);
             }
         }
 
-        private void testSelectQuery()
+        private async Task testSelectQuery()
+        {
+            
+        }
+
+        private async Task<Grid> buildGrid(List<List<string>> list)
         {
 
+            return null;
+        }
+
+        private async Task changeLoading(bool status)
+        {
+            if (status)
+            {
+                AI.IsRunning = true;
+                AI.IsVisible = true;
+            }
+            else
+            {
+                AI.IsRunning = false;
+                AI.IsVisible = false;
+            }
+        }
+
+        private void showLog(string text = "", Xamarin.Forms.Color color = default)
+        {
+            L_Log.TextColor = color;
+            L_Log.Text = text;
         }
     }
 }

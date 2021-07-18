@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 using MySqlConnector;
 
@@ -23,8 +24,8 @@ namespace androidDatabaseTester
         }
         /// ==========
 
-        /// F: TRY TO CONNECT
-        public Tuple<bool, string> getConnection()
+        /// F: TRY TO CONNECT ASYNC
+        public async Task<Tuple<bool, string>> getConnectionAsync()
         {
             Tuple<bool, string> status = null;
             MySqlConnection conn = null;
@@ -34,7 +35,7 @@ namespace androidDatabaseTester
                 string CONNECTION_STRING = "server=" + ip + ";port=3306;user=" + user + ";password=" + pass + ";database=" + db + ";";
                 conn = new MySqlConnection(CONNECTION_STRING);
 
-                conn.Open();
+                await conn.OpenAsync();
                 status = new Tuple<bool, string>(true, "Connection aquired!");
             }
             catch (Exception e)
@@ -43,7 +44,7 @@ namespace androidDatabaseTester
             }
             finally
             {
-                conn.Close();
+                await conn.CloseAsync();
             }
 
             return status;
@@ -51,28 +52,7 @@ namespace androidDatabaseTester
         /// ==========
 
         /// F: TRY TO GET SELECT QUERY
-        public List<List<string>> getData(string sql)
-        {
-            MySqlConnection conn = null;
 
-            try
-            {
-                string CONNECTION_STRING = "server=" + ip + ";port=3306;user=" + user + ";password=" + pass + ";database=" + db + ";";
-                conn = new MySqlConnection(CONNECTION_STRING);
-
-                conn.Open();
-            }
-            catch (Exception e)
-            {
-                
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return null;
-        }
         /// ==========
     }
 }
