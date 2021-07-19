@@ -1,5 +1,4 @@
 # androidDatabaseTester
-**Program is in early development!**
 
 ## Description
 *androidDatabaseTester* is a MySQL and similar databases tester for Android written in Xamarin Forms. Test if your database is available from your android device and send SELECT queries to check table data.
@@ -27,8 +26,10 @@ The application is still in early development. For now you can download the bran
 ## Changelog
 What's new? Here's the list:
 
-* **0.1.0** - *in development*
-  * work suspended!
+* **1.0.0** - 19.07.2021
+  * database connection tester
+  * SELECT query tester
+  * fresh GUI
 
 ## Thank you!
 Thank you for peeking at my project!
