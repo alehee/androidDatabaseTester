@@ -3,36 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="androidDatabaseTester.Main">
 
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
 
-        <Label x:Name="L_Version" Text="Version: x.x.x" Margin="0,5,5,0" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+            <Label Text="Android Database Tester" Margin="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" Padding="5" BackgroundColor="HotPink" FontAttributes="Bold,Italic" TextColor="White"/>
 
-        <Label Text="IP" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Editor x:Name="E_IP" Margin="0,0,0,0"/>
+            <Label x:Name="L_Version" Text="v: x.x.x" Margin="0,-20,0,0" Padding="5" VerticalTextAlignment="Center" HorizontalTextAlignment="End" BackgroundColor="HotPink" FontAttributes="Italic" TextColor="White"/>
+
+            <Label Text="IP" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="E_IP" Margin="0,0,0,0"/>
         
-        <Label Text="User" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Editor x:Name="E_User" Margin="0,0,0,0"/>
+            <Label Text="User" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="E_User" Margin="0,0,0,0"/>
         
-        <Label Text="Password" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Editor x:Name="E_Password" Margin="0,0,0,0"/>
+            <Label Text="Password" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="E_Password" Margin="0,0,0,0"/>
         
-        <Label Text="Database" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Editor x:Name="E_Database" Margin="0,0,0,0"/>
+            <Label Text="Database" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="E_Database" Margin="0,0,0,0"/>
         
-        <Label Text="Select Query" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Editor x:Name="E_Query" Text="SELECT " Margin="0,0,0,0"/>
+            <Label Text="Select Query" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="E_Query" Text="SELECT " Margin="0,0,0,0"/>
 
-        <Label x:Name="L_Log" Text="Log" Margin="5,5,5,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#f0f0f0" Padding="5"/>
+            <Label x:Name="L_Log" Text="Log" Margin="5,5,5,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#f0f0f0" Padding="5"/>
 
-        <Button Text="Test MySQL Connection" Margin="0,0,0,0" Clicked="Button_MySQL"/>
-        <Button Text="Test MySQL Query" Margin="0,0,0,0" Clicked="Button_Select"/>
+            <Button Text="Test MySQL Connection" Margin="0,0,0,0" Clicked="Button_MySQL"/>
+            <Button Text="Test MySQL Query" Margin="0,0,0,0" Clicked="Button_Select"/>
 
-        <ActivityIndicator x:Name="AI" IsRunning="false" IsVisible="false" />
+            <ActivityIndicator x:Name="AI" IsRunning="false" IsVisible="false" />
 
-        <ScrollView>
-            
-        </ScrollView>
+            <ScrollView x:Name="SV" HeightRequest="500" Orientation="Both" IsVisible="false">
+                <Grid x:Name="G_ShowQuery" Padding="10" BackgroundColor="LightGray">
+                    
+                </Grid>
+            </ScrollView>
 
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>
