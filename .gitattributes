@@ -1,2 +1,3 @@
 # Changing displayed languages
+*.cs linguist-detectable=true
 *.java linguist-detectable=false
