@@ -11,12 +11,13 @@ namespace androidDatabaseTester
 {
     public partial class Main : ContentPage
     {
-        const string VERSION = "1.0.0";
+        const string VERSION = "1.0.1";
 
         Connection connection;
 
         bool tooManyRows = false;
 
+        /// CLASS CONSTRUCTOR
         public Main()
         {
             InitializeComponent();
@@ -24,7 +25,9 @@ namespace androidDatabaseTester
             L_Version.Text = "v. " + VERSION;
             
         }
+        /// ==========
 
+        /// BUTTON HANDLERS
         private async void Button_MySQL(object sender, EventArgs e)
         {
             await testConnection();
@@ -34,7 +37,9 @@ namespace androidDatabaseTester
         {
             await testSelectQuery();
         }
+        /// ==========
 
+        /// BUTTON FUNCTIONS
         private async Task testConnection()
         {
             string ip = "";
@@ -140,6 +145,11 @@ namespace androidDatabaseTester
 
                 SV.IsVisible = true;
 
+                if (!qu.ToUpper().StartsWith("SELECT"))
+                {
+                    throw new Exception("That's not a SELECT query!");
+                }
+
                 connection = new Connection(ip, user, pass, db);
 
                 Tuple<bool, string> connectionStatus = await connection.getConnectionAsync();
@@ -190,7 +200,9 @@ namespace androidDatabaseTester
                 await changeLoading(false);
             }
         }
+        /// ==========
 
+        /// ADDITIONAL FUNCTIONS
         private async Task clearGrid()
         {
             G_ShowQuery.Children.Clear();
@@ -206,9 +218,15 @@ namespace androidDatabaseTester
                 for (int j=0; j<list[i].Count; j++)
                 {
                     if(i==0)
-                        G_ShowQuery.Children.Add(new Label { Text = list[i][j], FontAttributes = FontAttributes.Bold }, j, i);
+                        G_ShowQuery.Children.Add(new Label { Text = list[i][j], FontAttributes = FontAttributes.Bold, Padding = new Thickness(5), HorizontalTextAlignment = TextAlignment.Center }, j, i);
                     else
-                        G_ShowQuery.Children.Add(new Label { Text = list[i][j] }, j, i);
+                    {
+                        if(i%2==1)
+                            G_ShowQuery.Children.Add(new Label { Text = list[i][j], HorizontalTextAlignment = TextAlignment.Center, Padding = new Thickness(5), BackgroundColor = Color.White }, j, i);
+                        else
+                            G_ShowQuery.Children.Add(new Label { Text = list[i][j], HorizontalTextAlignment = TextAlignment.Center, Padding = new Thickness(5) }, j, i);
+                    }
+                        
                     G_ShowQuery.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 }
                 rowCount++;
@@ -240,5 +258,6 @@ namespace androidDatabaseTester
             L_Log.TextColor = color;
             L_Log.Text = text;
         }
+        /// ==========
     }
 }

@@ -1,0 +1,14 @@
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\bin\Release\netstandard2.0\androidDatabaseTester.deps.json
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\bin\Release\netstandard2.0\androidDatabaseTester.dll
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\bin\Release\netstandard2.0\ref\androidDatabaseTester.dll
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\bin\Release\netstandard2.0\androidDatabaseTester.pdb
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.csproj.AssemblyReference.cache
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\App.xaml.g.cs
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\Main.xaml.g.cs
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.AssemblyInfoInputs.cache
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.AssemblyInfo.cs
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.csproj.CoreCompileInputs.cache
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\XamlC.stamp
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.dll
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\ref\androidDatabaseTester.dll
+D:\Proj_Programming\Xamarin\androidDatabaseTester\androidDatabaseTester\androidDatabaseTester\obj\Release\netstandard2.0\androidDatabaseTester.pdb

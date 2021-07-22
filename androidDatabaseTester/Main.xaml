@@ -22,7 +22,7 @@
             <Label Text="Database" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             <Editor x:Name="E_Database" Margin="0,0,0,0"/>
         
-            <Label Text="Select Query" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="SELECT Query" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             <Editor x:Name="E_Query" Text="SELECT " Margin="0,0,0,0"/>
 
             <Label x:Name="L_Log" Text="Log" Margin="5,5,5,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="#f0f0f0" Padding="5"/>
@@ -33,7 +33,7 @@
             <ActivityIndicator x:Name="AI" IsRunning="false" IsVisible="false" />
 
             <ScrollView x:Name="SV" HeightRequest="500" Orientation="Both" IsVisible="false">
-                <Grid x:Name="G_ShowQuery" Padding="10" BackgroundColor="LightGray">
+                <Grid x:Name="G_ShowQuery" Padding="10" BackgroundColor="LightGray" RowSpacing="0" ColumnSpacing="0">
                     
                 </Grid>
             </ScrollView>

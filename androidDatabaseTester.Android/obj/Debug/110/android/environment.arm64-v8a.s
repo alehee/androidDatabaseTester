@@ -3,8 +3,8 @@
 	.section	.rodata.env.str.1,"aMS",@progbits,1
 	.type	.L.env.str.1, @object
 .L.env.str.1:
-	.asciz	"com.companyname.androiddatabasetester"
-	.size	.L.env.str.1, 38
+	.asciz	"com.aleksanderheese.androiddatabasetester"
+	.size	.L.env.str.1, 42
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	3
@@ -73,7 +73,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"ae4ca02d-cba0-4cb4-8146-cbbdba56322a"
+	.asciz	"a407270b-4b5c-49a1-93ab-e9cad110278b"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
